@@ -15,6 +15,9 @@ All notable changes to this project are documented in this file.
 
 - Redacted lab-specific identifiers from tracked files.
 - Renamed exported Python artifacts to `.txt` snapshots to avoid execution/tooling coupling.
+- Updated CI defaults for public-project context:
+  - `scripts/ci` now passes until project-specific tests are added.
+  - deploy-manifest workflow now skips gracefully when `markster-ops` is not accessible.
 
 ### Security
 

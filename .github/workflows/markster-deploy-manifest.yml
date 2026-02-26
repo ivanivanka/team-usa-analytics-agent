@@ -17,6 +17,8 @@ jobs:
       # NOTE: this workflow assumes your GitHub org can read the ops repo.
       # If your ops repo lives elsewhere, change `repository:`.
       - name: Checkout markster-ops inventory
+        id: checkout_ops
+        continue-on-error: true
         uses: actions/checkout@v4
         with:
           repository: markster-io/markster-ops
@@ -24,14 +26,23 @@ jobs:
           # ref: <sha-or-tag>
           path: markster-ops
 
+      - name: Skip note when markster-ops is not accessible
+        if: ${{ steps.checkout_ops.outcome != 'success' }}
+        run: |
+          echo "Skipping deploy manifest validation: markster-io/markster-ops is not accessible from this repo context."
+
       - uses: actions/setup-python@v5
+        if: ${{ steps.checkout_ops.outcome == 'success' }}
         with:
-          python-version: "3.x"
+          python-version: '3.x'
 
       - name: Install dependencies
+        if: ${{ steps.checkout_ops.outcome == 'success' }}
         run: |
           python3 -m pip install --upgrade pip pyyaml
 
       - name: Validate markster.deploy.yml
+        if: ${{ steps.checkout_ops.outcome == 'success' }}
         run: |
-          python3 markster-ops/marksterctl/marksterctl.py manifest validate .             --inventory-dir markster-ops/inventory
+          python3 markster-ops/marksterctl/marksterctl.py manifest validate . \
+            --inventory-dir markster-ops/inventory
