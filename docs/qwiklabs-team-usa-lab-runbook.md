@@ -77,7 +77,7 @@ In Colab Enterprise import:
 
 Set project ID in notebook:
 
-- `<REDACTED_QWIKLABS_PROJECT_ID>`
+- `<YOUR_QWIKLABS_PROJECT_ID>`
 
 ## 5) BigQuery ML (Task 4)
 
@@ -93,9 +93,9 @@ In Colab import:
 
 Use:
 
-- Project: `<REDACTED_QWIKLABS_PROJECT_ID>`
+- Project: `<YOUR_QWIKLABS_PROJECT_ID>`
 - Region: `us-central1`
-- User email: `<REDACTED_QWIKLABS_USER_EMAIL>`
+- User email: `<YOUR_QWIKLABS_USER_EMAIL>`
 
 ## 7) Agent build (Task 6)
 
@@ -108,9 +108,9 @@ cp .env.example .env
 
 Set in `.env`:
 
-- `PROJECT_ID=<REDACTED_QWIKLABS_PROJECT_ID>`
+- `PROJECT_ID=<YOUR_QWIKLABS_PROJECT_ID>`
 - `REGION=us-central1`
-- `DB_USER=<REDACTED_QWIKLABS_USER_EMAIL>`
+- `DB_USER=<YOUR_QWIKLABS_USER_EMAIL>`
 
 Then:
 
