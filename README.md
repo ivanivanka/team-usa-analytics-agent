@@ -9,6 +9,21 @@ This repository captures a complete reference implementation across:
 - AlloyDB vector search with ScaNN
 - ADK agent orchestration via MCP Toolbox for Databases
 
+## Plain-English summary
+
+This project is a practical example of an AI analyst that can answer sports questions by talking to multiple data systems automatically.
+
+In simple terms:
+
+- You ask a question in natural language.
+- The agent decides which backend is best for that question.
+- It can do profile lookups, similarity search, and ML-based athlete type classification.
+
+Why this is useful:
+
+- It shows how to combine analytics SQL, vector search, and agent routing in one workflow.
+- The exact same pattern can be reused for business use cases (customer segmentation, similarity search, and conversational analytics).
+
 ## Why this repo exists
 
 This is a public, reusable project archive for:
@@ -30,6 +45,25 @@ This is a public, reusable project archive for:
 - MCP tool configuration and agent prompt instructions,
 - reproducible Task 4 SQL scripts,
 - sanitized lab result records.
+
+## Data availability
+
+Short answer: **partially, yes**.
+
+What is available in this repo:
+
+- SQL scripts used for model/view creation and validation (`sql/` and `artifacts/sql/`)
+- agent/tool configuration snapshots (`artifacts/agent/`)
+- result summaries and validated counts (`artifacts/LAB_RESULTS.md`)
+
+What is not stored in this repo:
+
+- full raw athlete/result datasets (CSV tables are not committed)
+- live BigQuery or AlloyDB tables from the temporary Qwiklabs project
+
+Where the source data came from during the lab:
+
+- public Google Cloud Storage paths used by the lab workflow (documented in `docs/qwiklabs-team-usa-lab-runbook.md`)
 
 ## What to query
 

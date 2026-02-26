@@ -18,6 +18,7 @@ All notable changes to this project are documented in this file.
 - Updated CI defaults for public-project context:
   - `scripts/ci` now passes until project-specific tests are added.
   - deploy-manifest workflow now skips gracefully when `markster-ops` is not accessible.
+- Expanded README with plain-English project explanation and explicit data availability notes.
 
 ### Security
 
