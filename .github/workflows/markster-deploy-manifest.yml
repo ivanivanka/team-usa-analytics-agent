@@ -1,0 +1,37 @@
+---
+name: Deploy Manifest
+
+permissions: read-all
+
+'on':
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # NOTE: this workflow assumes your GitHub org can read the ops repo.
+      # If your ops repo lives elsewhere, change `repository:`.
+      - name: Checkout markster-ops inventory
+        uses: actions/checkout@v4
+        with:
+          repository: markster-io/markster-ops
+          # Pin to a SHA/tag to avoid flaky validation when marksterctl evolves.
+          # ref: <sha-or-tag>
+          path: markster-ops
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip pyyaml
+
+      - name: Validate markster.deploy.yml
+        run: |
+          python3 markster-ops/marksterctl/marksterctl.py manifest validate .             --inventory-dir markster-ops/inventory
