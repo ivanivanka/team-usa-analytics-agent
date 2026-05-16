@@ -10,14 +10,12 @@ service_id: your-service-id
 #   production: prod
 #   staging: staging
 
-# Optional provider-specific mapping (informational today).
+# Optional runtime metadata (informational today).
 # Naming: `service_id` always means Markster inventory service id.
-# Provider IDs must use provider-prefixed names (example: `railway_service_id`).
-# Prefer per-service provider mappings under `services:` (supports multi-service repos).
+# Keep provider-specific IDs in markster-ops inventory; this repo should only
+# reference Markster service ids.
+# If no repo-specific Azure target is registered yet, use rg-AIDT-v0_ivan as the migration landing zone.
 #
 # services:
 #   - service_id: your-service-id
 #     default: true
-#     railway:
-#       project_id: your-railway-project-id
-#       railway_service_id: your-railway-service-id
