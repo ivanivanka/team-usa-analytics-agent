@@ -14,6 +14,7 @@ service_id: your-service-id
 # Naming: `service_id` always means Markster inventory service id.
 # Keep provider-specific IDs in markster-ops inventory; this repo should only
 # reference Markster service ids.
+# If no repo-specific Azure target is registered yet, use rg-AIDT-v0_ivan as the migration landing zone.
 #
 # services:
 #   - service_id: your-service-id
